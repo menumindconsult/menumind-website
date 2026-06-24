@@ -1,61 +1,77 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AnimatedCounter from "./AnimatedCounter";
 
-const results = [
-  { label: "Operational Efficiency", value: 38, suffix: "%", detail: "average improvement" },
-  { label: "Team Performance", value: 42, suffix: "%", detail: "increase in productivity" },
-  { label: "Guest Satisfaction", value: 4.8, suffix: "/5", detail: "average rating", decimals: 1 },
-  { label: "Speed of Service", value: 31, suffix: "%", detail: "faster ticket times" },
-  { label: "Food Cost Optimization", value: 11, suffix: "pts", detail: "average reduction" },
-  { label: "Training Effectiveness", value: 94, suffix: "%", detail: "staff retention post-training" },
+const steps = [
+  {
+    number: "01",
+    title: "Assessment",
+    description:
+      "A thorough review of your current operations, team performance, and guest experience to identify what is actually holding profitability back.",
+  },
+  {
+    number: "02",
+    title: "Strategy",
+    description:
+      "A clear, written plan tailored to your restaurant, with priorities, timelines, and the specific changes that will move the numbers.",
+  },
+  {
+    number: "03",
+    title: "Implementation",
+    description:
+      "Working alongside your team to put the plan into practice, from training sessions to systems and standards on the floor.",
+  },
+  {
+    number: "04",
+    title: "Results",
+    description:
+      "Reviewing outcomes against the original goals, then building on what worked. The relationship continues past delivery.",
+  },
 ];
 
-export default function ResultsSection() {
+export default function Process() {
   return (
-    <section id="results" className="bg-offwhite px-6 py-28 lg:px-10">
+    <section className="bg-offwhite px-6 py-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-2xl text-center"
+          className="mx-auto mb-20 max-w-2xl text-center"
         >
           <span className="mb-3 block text-[11.5px] font-semibold uppercase tracking-[3px] text-gold">
-            Results
+            Process
           </span>
           <h2 className="font-display text-[clamp(28px,3.6vw,42px)] font-semibold text-navy">
-            Delivering Measurable Results
+            Our Consulting Approach
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {results.map((result, i) => (
-            <motion.div
-              key={result.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
-              className="rounded-[12px] border border-light-gray bg-white p-8 text-center shadow-[0_2px_12px_rgba(23,35,58,0.04)]"
-            >
-              <div className="font-stat text-[40px] font-bold text-navy">
-                <AnimatedCounter
-                  value={result.value}
-                  suffix={result.suffix}
-                  decimals={result.decimals ?? 0}
-                />
-              </div>
-              <div className="mt-3 text-[14.5px] font-semibold text-dark-text">
-                {result.label}
-              </div>
-              <div className="mt-1 text-[12.5px] text-dark-text/55">
-                {result.detail}
-              </div>
-            </motion.div>
-          ))}
+        <div className="relative">
+          <div className="absolute left-1/2 top-7 hidden h-px w-full -translate-x-1/2 bg-light-gray lg:block" />
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                className="relative text-center"
+              >
+                <div className="relative z-10 mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border-2 border-gold bg-offwhite font-stat text-[16px] font-bold text-navy">
+                  {step.number}
+                </div>
+                <h3 className="mb-3 font-display text-[18px] font-semibold text-navy">
+                  {step.title}
+                </h3>
+                <p className="mx-auto max-w-[230px] text-[13.5px] leading-[1.75] text-dark-text/60">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
