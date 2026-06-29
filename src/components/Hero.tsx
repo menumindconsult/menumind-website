@@ -1,15 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useT } from "@/context/LanguageContext";
 
 const trustStats = [
-  { value: "300+", label: "Employees Trained" },
-  { value: "14", label: "Restaurants Supported" },
-  { value: "2", label: "Restaurant Openings" },
-  { value: "65", label: "Team Members Managed" },
+  { value: "300+", en: "Employees Trained", ar: "موظف تم تدريبهم" },
+  { value: "14", en: "Restaurants Supported", ar: "مطعم تم دعمه" },
+  { value: "2", en: "Restaurant Openings", ar: "افتتاح مطعم" },
+  { value: "20+", en: "Team Members Managed", ar: "عضو فريق تمت إدارته" },
+];
+
+const dashCards = [
+  { en: "Food Cost", ar: "تكلفة الطعام", value: "27%", trend: "-11pts" },
+  { en: "Service Speed", ar: "سرعة الخدمة", value: "6.4m", trend: "-2.1m" },
+  { en: "Guest Score", ar: "تقييم الضيوف", value: "4.8", trend: "+0.6" },
+  { en: "Staff Retention", ar: "استمرارية الموظفين", value: "84%", trend: "+19pts" },
 ];
 
 export default function Hero() {
+  const t = useT();
+
   return (
     <section
       id="home"
@@ -37,30 +47,32 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <span className="mb-6 inline-block rounded-full border border-gold/40 px-4 py-1.5 text-[11.5px] font-semibold uppercase tracking-[2.5px] text-gold-light">
-            Restaurant Operations Excellence
+            {t({ en: "Restaurant Operations Excellence", ar: "التميز في عمليات المطاعم" })}
           </span>
           <h1 className="font-display text-[clamp(34px,5vw,58px)] font-semibold leading-[1.15] text-offwhite">
-            Transforming Restaurant Operations Into{" "}
-            <em className="italic text-gold-light">Profitable Growth</em>
+            {t({ en: "Transforming Restaurant Operations Into", ar: "نحوّل عمليات مطعمك إلى" })}{" "}
+            <em className="italic text-gold-light">
+              {t({ en: "Profitable Growth", ar: "نمو مربح" })}
+            </em>
           </h1>
           <p className="mt-6 max-w-xl text-[16px] leading-[1.85] text-offwhite/65 lg:text-[17px]">
-            MenuMind helps restaurant owners improve profitability, strengthen
-            teams, optimize operations, and deliver exceptional guest
-            experiences through practical restaurant consulting and
-            operational excellence programs.
+            {t({
+              en: "MenuMind helps restaurant owners improve profitability, strengthen teams, optimize operations, and deliver exceptional guest experiences through practical restaurant consulting and operational excellence programs.",
+              ar: "تساعد MenuMind أصحاب المطاعم على تحسين الربحية، وتقوية فرق العمل، وتطوير العمليات، وتقديم تجربة استثنائية للضيوف، من خلال استشارات عملية وبرامج تميز تشغيلي.",
+            })}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#contact"
               className="rounded-[12px] bg-gold px-8 py-4 text-[15px] font-semibold text-navy-deep transition-all hover:bg-gold-light hover:shadow-[0_12px_28px_-8px_rgba(200,164,107,0.45)]"
             >
-              Book Free Consultation
+              {t({ en: "Book Free Consultation", ar: "احجز استشارة مجانية" })}
             </a>
             <a
               href="#services"
               className="rounded-[12px] border border-offwhite/30 px-8 py-4 text-[15px] font-semibold text-offwhite transition-all hover:border-gold hover:text-gold-light"
             >
-              Explore Services
+              {t({ en: "Explore Services", ar: "اكتشف خدماتنا" })}
             </a>
           </div>
         </motion.div>
@@ -75,23 +87,28 @@ export default function Hero() {
           <div className="rounded-[20px] border border-offwhite/10 bg-navy/70 p-6 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.55)] backdrop-blur-sm">
             <div className="mb-5 flex items-center justify-between">
               <span className="text-[13px] font-semibold text-offwhite/80">
-                Operational Snapshot
+                {t({ en: "Operational Snapshot", ar: "لقطة تشغيلية" })}
               </span>
               <span className="rounded-full bg-success-green/20 px-3 py-1 text-[11px] font-semibold text-success-green">
-                On Track
+                {t({ en: "On Track", ar: "على المسار الصحيح" })}
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              <DashCard label="Food Cost" value="27%" trend="-11pts" positive />
-              <DashCard label="Service Speed" value="6.4m" trend="-2.1m" positive />
-              <DashCard label="Guest Score" value="4.8" trend="+0.6" positive />
-              <DashCard label="Staff Retention" value="84%" trend="+19pts" positive />
+              {dashCards.map((card) => (
+                <DashCard
+                  key={card.en}
+                  label={t(card)}
+                  value={card.value}
+                  trend={card.trend}
+                  positive
+                />
+              ))}
             </div>
 
             <div className="mt-5 rounded-[14px] bg-navy-deep/60 p-4">
               <div className="mb-3 flex items-center justify-between text-[12px] text-offwhite/55">
-                <span>Quarterly Performance</span>
+                <span>{t({ en: "Quarterly Performance", ar: "الأداء الفصلي" })}</span>
                 <span>Q1 - Q4</span>
               </div>
               <div className="flex h-20 items-end gap-2">
@@ -115,18 +132,18 @@ export default function Hero() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px lg:grid-cols-4">
           {trustStats.map((stat, i) => (
             <motion.div
-              key={stat.label}
+              key={stat.en}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="border-offwhite/10 px-6 py-9 text-center lg:border-l first:lg:border-l-0"
+              className="border-offwhite/10 px-6 py-9 text-center lg:border-s first:lg:border-s-0"
             >
               <span className="font-stat block text-[32px] font-bold text-gold-light">
                 {stat.value}
               </span>
               <span className="mt-1.5 block text-[12.5px] text-offwhite/65">
-                {stat.label}
+                {t(stat)}
               </span>
             </motion.div>
           ))}

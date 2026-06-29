@@ -2,18 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useLanguage, useT } from "@/context/LanguageContext";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Results", href: "#results" },
-  { label: "Contact", href: "#contact" },
+  { href: "#home", en: "Home", ar: "الرئيسية" },
+  { href: "#services", en: "Services", ar: "الخدمات" },
+  { href: "#prices", en: "Prices", ar: "الأسعار" },
+  { href: "#about", en: "About", ar: "من نحن" },
+  { href: "#results", en: "Results", ar: "النتائج" },
+  { href: "#contact", en: "Contact", ar: "تواصل" },
 ];
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, toggleLang } = useLanguage();
+  const t = useT();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -53,39 +57,61 @@ export default function Navigation() {
                 scrolled ? "text-navy hover:text-gold" : "text-offwhite hover:text-gold-light"
               }`}
             >
-              {link.label}
+              {t(link)}
             </a>
           ))}
           <a
             href="#contact"
             className="rounded-[12px] bg-navy px-6 py-2.5 text-[14px] font-semibold text-offwhite transition-all hover:bg-navy-deep hover:shadow-lg"
           >
-            Book Consultation
+            {t({ en: "Book Consultation", ar: "احجز استشارة" })}
           </a>
+          <button
+            onClick={toggleLang}
+            className={`rounded-full border px-4 py-1.5 text-[13px] font-semibold transition-all ${
+              scrolled
+                ? "border-gold text-navy hover:bg-gold hover:text-white"
+                : "border-offwhite/40 text-offwhite hover:border-gold-light hover:text-gold-light"
+            }`}
+          >
+            {lang === "en" ? "العربية" : "English"}
+          </button>
         </div>
 
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          <span
-            className={`block h-[1.5px] w-6 transition-all ${
-              scrolled || mobileOpen ? "bg-navy" : "bg-offwhite"
-            } ${mobileOpen ? "translate-y-[6.5px] rotate-45" : ""}`}
-          />
-          <span
-            className={`block h-[1.5px] w-6 transition-all ${
-              scrolled || mobileOpen ? "bg-navy" : "bg-offwhite"
-            } ${mobileOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block h-[1.5px] w-6 transition-all ${
-              scrolled || mobileOpen ? "bg-navy" : "bg-offwhite"
-            } ${mobileOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`}
-          />
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <button
+            onClick={toggleLang}
+            className={`rounded-full border px-3 py-1 text-[12px] font-semibold transition-all ${
+              scrolled || mobileOpen
+                ? "border-gold text-navy"
+                : "border-offwhite/40 text-offwhite"
+            }`}
+          >
+            {lang === "en" ? "AR" : "EN"}
+          </button>
+          <button
+            className="flex flex-col gap-1.5 p-2"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            <span
+              className={`block h-[1.5px] w-6 transition-all ${
+                scrolled || mobileOpen ? "bg-navy" : "bg-offwhite"
+              } ${mobileOpen ? "translate-y-[6.5px] rotate-45" : ""}`}
+            />
+            <span
+              className={`block h-[1.5px] w-6 transition-all ${
+                scrolled || mobileOpen ? "bg-navy" : "bg-offwhite"
+              } ${mobileOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block h-[1.5px] w-6 transition-all ${
+                scrolled || mobileOpen ? "bg-navy" : "bg-offwhite"
+              } ${mobileOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`}
+            />
+          </button>
+        </div>
       </nav>
 
       {mobileOpen && (
@@ -97,7 +123,7 @@ export default function Navigation() {
               className="text-[15px] font-medium text-navy"
               onClick={() => setMobileOpen(false)}
             >
-              {link.label}
+              {t(link)}
             </a>
           ))}
           <a
@@ -105,7 +131,7 @@ export default function Navigation() {
             className="rounded-[12px] bg-navy px-6 py-3 text-center text-[14px] font-semibold text-offwhite"
             onClick={() => setMobileOpen(false)}
           >
-            Book Consultation
+            {t({ en: "Book Consultation", ar: "احجز استشارة" })}
           </a>
         </div>
       )}

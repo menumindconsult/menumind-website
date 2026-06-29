@@ -1,8 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useT } from "@/context/LanguageContext";
 
 export default function FinalCTA() {
+  const t = useT();
+  const whatsappMessage = t({
+    en: "Hello, I would like to book a free consultation",
+    ar: "مرحباً، أرغب في حجز استشارة مجانية",
+  });
+
   return (
     <section
       id="contact"
@@ -20,21 +27,36 @@ export default function FinalCTA() {
         className="relative mx-auto max-w-2xl"
       >
         <h2 className="font-display text-[clamp(28px,4vw,42px)] font-semibold text-offwhite">
-          Ready To Improve Restaurant Performance?
+          {t({
+            en: "Ready To Improve Restaurant Performance?",
+            ar: "هل أنت مستعد لتحسين أداء مطعمك؟",
+          })}
         </h2>
         <p className="mt-5 text-[16px] leading-[1.8] text-offwhite/65">
-          Let&rsquo;s discuss your goals and identify opportunities to
-          strengthen operations, improve profitability, and build
-          high-performing teams.
+          {t({
+            en: "Let's discuss your goals and identify opportunities to strengthen operations, improve profitability, and build high-performing teams.",
+            ar: "لنتحدث عن أهدافك ونحدد الفرص لتعزيز العمليات، وتحسين الأرباح، وبناء فريق عمل عالي الأداء.",
+          })}
         </p>
         <a
-          href="https://wa.me/966540367407?text=Hello%2C%20I%20would%20like%20to%20book%20a%20free%20consultation"
+          href={`https://wa.me/966540367407?text=${encodeURIComponent(whatsappMessage)}`}
           target="_blank"
           rel="noopener"
           className="mt-9 inline-block rounded-[12px] bg-gold px-10 py-4 text-[15px] font-semibold text-navy-deep transition-all hover:bg-gold-light hover:shadow-[0_12px_28px_-8px_rgba(200,164,107,0.45)]"
         >
-          Book Free Consultation
+          {t({ en: "Book Free Consultation", ar: "احجز استشارة مجانية" })}
         </a>
+        <p className="mt-5 text-[14px] text-offwhite/55">
+          {t({ en: "Or reach us directly on WhatsApp: ", ar: "أو تواصل معنا مباشرة على واتساب: " })}
+          <a
+            href="https://wa.me/966540367407"
+            target="_blank"
+            rel="noopener"
+            className="font-stat font-semibold text-gold-light transition-colors hover:text-gold"
+          >
+            +966 54 036 7407
+          </a>
+        </p>
       </motion.div>
     </section>
   );

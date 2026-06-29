@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import Prices from "@/components/Prices";
 import WhyMenuMind from "@/components/WhyMenuMind";
 import ResultsSection from "@/components/Results";
 import About from "@/components/About";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <Prices />
         <WhyMenuMind />
         <ResultsSection />
         <About />

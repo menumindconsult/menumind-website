@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "SaudiRiyal";
+  src: url("/fonts/saudi-riyal/saudi_riyal.woff2") format("woff2"),
+       url("/fonts/saudi-riyal/saudi_riyal.woff") format("woff"),
+       url("/fonts/saudi-riyal/saudi_riyal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SaudiRiyalBold";
+  src: url("/fonts/saudi-riyal/saudi_riyal_bold.woff2") format("woff2"),
+       url("/fonts/saudi-riyal/saudi_riyal_bold.woff") format("woff"),
+       url("/fonts/saudi-riyal/saudi_riyal_bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* Renders the official Saudi Riyal symbol (Unicode U+20C1) using a self-hosted
+   font, so it displays correctly even on devices whose system fonts have not
+   yet added support for the brand-new code point. */
+.sar-symbol {
+  font-family: "SaudiRiyal", sans-serif;
+  font-weight: normal;
+}
+.sar-symbol.bold {
+  font-family: "SaudiRiyalBold", sans-serif;
+  font-weight: bold;
+}
+
+
 :root {
   --color-navy: #17233A;
   --color-navy-deep: #0E1726;
@@ -23,6 +54,19 @@
   --font-display: Georgia, "Times New Roman", serif;
   --font-body: Arial, Helvetica, sans-serif;
   --font-stat: Arial, Helvetica, sans-serif;
+  --font-arabic: "Tajawal", Arial, sans-serif;
+}
+
+/* When the document is RTL (Arabic), switch the display and body fonts to
+   Tajawal everywhere, since Playfair Display and the other Latin faces do not
+   have Arabic glyphs. The riyal symbol, AnimatedCounter digits, and any other
+   Latin-script fragments inside Arabic text are unaffected since they fall
+   back to the same font stack either way. */
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+[dir="rtl"] .font-display {
+  font-family: var(--font-arabic);
 }
 
 html {
