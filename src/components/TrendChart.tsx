@@ -68,8 +68,8 @@ export default function TrendChart({ points, suffix = "%" }: TrendChartProps) {
     >
       <defs>
         <linearGradient id="trendFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#C8A46B" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#C8A46B" stopOpacity="0" />
+          <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
         </linearGradient>
       </defs>
 
@@ -84,7 +84,7 @@ export default function TrendChart({ points, suffix = "%" }: TrendChartProps) {
       <motion.path
         d={linePath}
         fill="none"
-        stroke="#DFC397"
+        stroke="#E3CB7D"
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -109,8 +109,8 @@ export default function TrendChart({ points, suffix = "%" }: TrendChartProps) {
               cx={c.x}
               cy={c.y}
               r="4.5"
-              fill="#17233A"
-              stroke="#DFC397"
+              fill="#0B1F3A"
+              stroke="#E3CB7D"
               strokeWidth="2"
               initial={{ scale: 0, opacity: 0 }}
               animate={inView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
@@ -123,7 +123,7 @@ export default function TrendChart({ points, suffix = "%" }: TrendChartProps) {
               className="font-stat"
               fontSize="16"
               fontWeight="700"
-              fill="#DFC397"
+              fill="#E3CB7D"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.4, delay: 0.5 + i * 0.35 }}

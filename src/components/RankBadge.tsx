@@ -33,7 +33,7 @@ export default function RankBadge() {
         >
           <path
             d="M2 10H40M40 10L32 3M40 10L32 17"
-            stroke="#DFC397"
+            stroke="#E3CB7D"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

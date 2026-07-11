@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import TrendChart from "./TrendChart";
-import RankBadge from "./RankBadge";
 import { useT } from "@/context/LanguageContext";
 
 const phasesOne = [
@@ -41,41 +40,6 @@ const phasesOne = [
   },
 ];
 
-const phasesTwo = [
-  {
-    label: { en: "Step 1", ar: "الخطوة 1" },
-    title: {
-      en: "Setting the North Star",
-      ar: "تحديد الهدف الأسمى",
-    },
-    description: {
-      en: "We opened with a declaration of belief: this was the most capable team in the chain, and the target was not just to pass, but to score highest. We were not fixing a broken restaurant, we were unveiling an excellent one.",
-      ar: "بدأنا بإعلان إيمان واضح: هذا أقوى فريق في السلسلة، والهدف ليس مجرد النجاح بل تحقيق أعلى تقييم. لم نكن نصلح مطعماً متعطلاً، بل كنا نكشف عن مطعم متميز.",
-    },
-  },
-  {
-    label: { en: "Step 2", ar: "الخطوة 2" },
-    title: {
-      en: "Transparent Deconstruction",
-      ar: "تحليل شفاف للأخطاء",
-    },
-    description: {
-      en: "Last year's mistakes were reviewed openly, with the stigma of failure removed and reframed purely as data, used to engineer clear systems so the same errors could never repeat.",
-      ar: "تمت مراجعة أخطاء العام السابق بشكل مفتوح، مع إزالة وصمة الفشل والتعامل معها كمعلومات بحتة، استُخدمت لبناء أنظمة واضحة تمنع تكرار نفس الأخطاء مرة أخرى.",
-    },
-  },
-  {
-    label: { en: "Step 3", ar: "الخطوة 3" },
-    title: {
-      en: "Precision Focus and Delegation",
-      ar: "تركيز دقيق وتوزيع المهام",
-    },
-    description: {
-      en: "We identified the highest-yield audit criteria and filtered out the noise, then assigned highly specific, individually tailored tasks so every team member knew exactly what right looked like.",
-      ar: "حددنا أهم معايير التدقيق الأكثر تأثيراً واستثنينا التفاصيل الجانبية، ثم وزعنا مهاماً دقيقة ومخصصة لكل فرد حتى يعرف تماماً كيف يبدو الأداء الصحيح.",
-    },
-  },
-];
 
 export default function CaseStudies() {
   const t = useT();
@@ -167,76 +131,6 @@ export default function CaseStudies() {
                   {t({
                     en: "Strict process compliance dropped food cost by 3 points in the first month alone. A follow-up visit focused on habituation, coaching the new standards until they became second nature, unlocked the remaining 2 points and landed the restaurant at a sustainable 30%.",
                     ar: "أدى الالتزام الصارم بالإجراءات إلى خفض تكلفة الطعام بنسبة 3 نقاط في الشهر الأول فقط. ركزت زيارة متابعة على ترسيخ العادات، من خلال توجيه الفريق حتى أصبحت المعايير الجديدة طبيعة ثانية، مما أدى إلى تحقيق النقطتين المتبقيتين والوصول إلى نسبة مستقرة وصحية بلغت 30٪.",
-                  })}
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Second featured case study */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6 }}
-          className="mt-6 overflow-hidden rounded-[16px] border border-light-gray bg-white shadow-[0_8px_30px_rgba(23,35,58,0.08)]"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-5">
-            <div className="relative flex flex-col justify-center bg-navy px-8 py-10 text-center lg:col-span-2 lg:px-9">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_0%,rgba(200,164,107,0.14),transparent_60%)]" />
-              <div className="relative">
-                <span className="mb-5 block text-[11px] font-semibold uppercase tracking-[2px] text-gold-light/80">
-                  {t({ en: "International Chain", ar: "سلسلة مطاعم عالمية" })}
-                </span>
-                <RankBadge />
-                <p className="mt-6 text-[12.5px] font-medium text-offwhite/65">
-                  {t({
-                    en: "Annual operational audit, year over year",
-                    ar: "تدقيق تشغيلي سنوي، عاماً بعد عام",
-                  })}
-                </p>
-              </div>
-            </div>
-
-            <div className="p-8 lg:col-span-3 lg:p-10">
-              <h3 className="font-display text-[22px] font-semibold text-navy">
-                {t({
-                  en: "The Power of Belief: A Record-Breaking Audit Turnaround",
-                  ar: "قوة الإيمان: تحول قياسي في نتيجة التدقيق",
-                })}
-              </h3>
-              <p className="mt-3 text-[14px] leading-[1.75] text-dark-text/65">
-                {t({
-                  en: "Coming off a technically passing but underwhelming audit score, the team carried a quiet sense of underachievement, conditioned to see the audit as a punitive measure rather than a chance to excel. The real challenge was not operational, it was psychological: a defensive mindset that needed to be replaced with a genuine drive for mastery.",
-                  ar: "بعد نتيجة تدقيق ناجحة من الناحية الفنية لكنها مخيبة للآمال، حمل الفريق إحساساً خفياً بالتقصير، واعتاد على رؤية التدقيق كعقوبة بدل أن يكون فرصة للتميز. لم يكن التحدي الحقيقي تشغيلياً بل نفسياً: عقلية دفاعية كانت بحاجة لأن تتحول إلى دافع حقيقي للتميز.",
-                })}
-              </p>
-
-              <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-3">
-                {phasesTwo.map((phase) => (
-                  <div key={phase.label.en}>
-                    <span className="font-stat text-[11px] font-bold text-gold">
-                      {t(phase.label)}
-                    </span>
-                    <h4 className="mt-1.5 text-[13.5px] font-semibold text-navy">
-                      {t(phase.title)}
-                    </h4>
-                    <p className="mt-1.5 text-[12.5px] leading-[1.65] text-dark-text/60">
-                      {t(phase.description)}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-7 rounded-[10px] bg-light-gray/60 px-5 py-4">
-                <p className="text-[13px] leading-[1.7] text-dark-text/75">
-                  <span className="font-semibold text-navy">
-                    {t({ en: "Result: ", ar: "النتيجة: " })}
-                  </span>
-                  {t({
-                    en: "On audit day, the floor carried controlled, proud readiness rather than anxiety. Management shadowed the team not to police them but to support them, and when results came in across every location in the chain, this one did not merely pass, it scored highest in the chain's history. Operational excellence is never an accident, it is the natural by-product of an empowered team.",
-                    ar: "في يوم التدقيق، كان الفريق هادئاً وواثقاً بدل أن يكون متوتراً. لم تكن الإدارة تراقب الفريق بل تدعمه، وعندما وصلت النتائج من جميع فروع السلسلة، لم يكتفِ هذا الفرع بالنجاح فقط بل حقق أعلى تقييم في تاريخ السلسلة. التميز التشغيلي لا يحدث بالصدفة، بل هو نتيجة طبيعية لفريق يشعر بالثقة والتمكين.",
                   })}
                 </p>
               </div>

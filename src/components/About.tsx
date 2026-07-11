@@ -65,6 +65,15 @@ export default function About() {
               })}
             </p>
 
+            <div className="mt-7 border-l-2 border-gold py-1 pl-5">
+              <p className="font-display text-[16.5px] italic leading-[1.7] text-navy/85">
+                {t({
+                  en: "\u201cThe same people, in the same place, under the same circumstances, can produce a completely different result once they are trusted, coached, and given standards worth being proud of. Operational excellence is never an accident. It is the natural outcome of a team that believes it is capable of it.\u201d",
+                  ar: "\u00abيمكن لنفس الأشخاص، في نفس المكان، وتحت نفس الظروف، أن يحققوا نتيجة مختلفة تماماً بمجرد أن يُمنحوا الثقة والتوجيه ومعايير يفخرون بها. التميز التشغيلي لا يحدث بالصدفة، بل هو النتيجة الطبيعية لفريق يؤمن بقدرته على تحقيقه.\u00bb",
+                })}
+              </p>
+            </div>
+
             <div className="mt-9 grid grid-cols-2 gap-4 sm:grid-cols-3">
               {highlights.map((h) => (
                 <div

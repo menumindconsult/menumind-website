@@ -89,7 +89,7 @@ export default function Hero() {
               <span className="text-[13px] font-semibold text-offwhite/80">
                 {t({ en: "Operational Snapshot", ar: "لقطة تشغيلية" })}
               </span>
-              <span className="rounded-full bg-success-green/20 px-3 py-1 text-[11px] font-semibold text-success-green">
+              <span className="rounded-full bg-gold/20 px-3 py-1 text-[11px] font-semibold text-gold-light">
                 {t({ en: "On Track", ar: "على المسار الصحيح" })}
               </span>
             </div>
@@ -170,7 +170,7 @@ function DashCard({
       <div className="font-stat mt-1 text-[20px] font-bold text-offwhite">{value}</div>
       <div
         className={`mt-0.5 text-[11px] font-medium ${
-          positive ? "text-success-green" : "text-gold-light"
+          positive ? "text-gold-light" : "text-offwhite/55"
         }`}
       >
         {trend}

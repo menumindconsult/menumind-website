@@ -31,15 +31,19 @@
 }
 
 
+/* Canonical MENUMIND palette per the EPDS (MC-001) — Primary Navy, Executive
+   Gold, and Executive Cream are the three governing brand colours and must
+   never be adjusted here without updating MC-001 first. navy-deep and
+   gold-light are derived tints of the same two hues (not new colours) used
+   for gradients and hover states. */
 :root {
-  --color-navy: #17233A;
-  --color-navy-deep: #0E1726;
-  --color-gold: #C8A46B;
-  --color-gold-light: #DFC397;
-  --color-offwhite: #F8F7F4;
-  --color-dark-text: #1A1A1A;
-  --color-light-gray: #EAEAEA;
-  --color-success-green: #2D6A4F;
+  --color-navy: #0B1F3A;
+  --color-navy-deep: #071426;
+  --color-gold: #D4AF37;
+  --color-gold-light: #E3CB7D;
+  --color-offwhite: #FAF7F2;
+  --color-dark-text: #2B2B2B;
+  --color-light-gray: #F5F5F5;
 }
 
 @theme inline {
@@ -50,10 +54,9 @@
   --color-offwhite: var(--color-offwhite);
   --color-dark-text: var(--color-dark-text);
   --color-light-gray: var(--color-light-gray);
-  --color-success-green: var(--color-success-green);
-  --font-display: Georgia, "Times New Roman", serif;
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-stat: Arial, Helvetica, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", Arial, Helvetica, sans-serif;
+  --font-stat: "Inter", Arial, Helvetica, sans-serif;
   --font-arabic: "Tajawal", Arial, sans-serif;
 }
 
@@ -76,7 +79,7 @@ html {
 body {
   background: var(--color-offwhite);
   color: var(--color-dark-text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
 }
 
 ::selection {
