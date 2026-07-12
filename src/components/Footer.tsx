@@ -12,11 +12,11 @@ export default function Footer() {
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <div className="max-w-sm">
             <Image
-              src="/images/logo.png"
-              alt="MenuMind Restaurant Consultancy"
+              src="/images/logo-silver-gold.png"
+              alt="MENUMIND Restaurant Consultancy"
               width={195}
-              height={105}
-              className="h-12 w-auto brightness-0 invert"
+              height={143}
+              className="h-12 w-auto"
             />
             <p className="mt-5 text-[13.5px] leading-[1.75] text-offwhite/50">
               {t({

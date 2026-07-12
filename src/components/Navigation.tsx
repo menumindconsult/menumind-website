@@ -37,10 +37,10 @@ export default function Navigation() {
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-6 lg:px-10 py-3">
         <a href="#home" className="flex items-center" aria-label="MenuMind home">
           <Image
-            src="/images/logo.png"
-            alt="MenuMind Restaurant Consultancy"
+            src={scrolled || mobileOpen ? "/images/logo-navy-gold.png" : "/images/logo-silver-gold.png"}
+            alt="MENUMIND Restaurant Consultancy"
             width={195}
-            height={105}
+            height={143}
             className={`w-auto transition-all duration-300 ${
               scrolled || mobileOpen ? "h-11" : "h-14"
             }`}

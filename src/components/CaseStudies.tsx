@@ -137,28 +137,6 @@ export default function CaseStudies() {
             </div>
           </div>
         </motion.div>
-
-        {/* One remaining honest placeholder slot */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5 }}
-          className="mt-6 overflow-hidden rounded-[12px] border border-light-gray bg-white shadow-[0_2px_12px_rgba(23,35,58,0.04)]"
-        >
-          <div className="flex aspect-[16/5] items-center justify-center bg-gradient-to-br from-navy to-navy-deep">
-            <span className="font-display text-[15px] italic text-gold-light/70">
-              {t({ en: "Case Study Coming Soon", ar: "قصة نجاح قريباً" })}
-            </span>
-          </div>
-          <div className="p-6">
-            <div className="mb-2 text-[11px] font-semibold uppercase tracking-[1.5px] text-gold">
-              {t({ en: "Restaurant Type", ar: "نوع المطعم" })}
-            </div>
-            <div className="h-3 w-3/4 rounded-full bg-light-gray" />
-            <div className="mt-2.5 h-3 w-1/2 rounded-full bg-light-gray" />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
