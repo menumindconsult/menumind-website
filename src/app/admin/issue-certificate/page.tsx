@@ -9,7 +9,7 @@ export default async function IssueCertificatePage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/register");
+    redirect("/login");
   }
 
   const { data: profile } = await supabase
